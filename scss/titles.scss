@@ -1,7 +1,7 @@
 $title-decoration-height: 90px;
 $title-decoration-width: 70px;
 
-.title:before{
+.title::before {
     background: url(assets/triangle.svg);
     background-repeat: no-repeat;
     content: '';

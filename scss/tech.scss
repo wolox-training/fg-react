@@ -1,0 +1,29 @@
+.tech-card {
+    border-radius: 10px;
+    background: green;
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tech-card-image {
+    width: 100px;  /* Or whatever */
+    height: 100px; /* Or whatever */
+    background: blue;
+    margin: auto;  /* Magic! */
+  }
+
+  .tech-card-title {
+    width: 50px;  /* Or whatever */
+    height: 50px; /* Or whatever */
+    background: red;
+    margin: auto;  /* Magic! */
+  }
+
+  .tech-card-description {
+    width: 10px;  /* Or whatever */
+    height: 10px; /* Or whatever */
+    background: black;
+    margin: auto;  /* Magic! */
+  }
