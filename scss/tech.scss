@@ -26,6 +26,7 @@
 
 .tech-card-release {
   @extend %tech-card-item; 
+  font-weight: bold;
 }
 
 .tech-card-description {
