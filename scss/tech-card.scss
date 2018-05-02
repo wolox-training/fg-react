@@ -14,6 +14,10 @@
   position: relative;
 }
 
+.grid-flex-display .tech-card {
+  margin: 20px;
+}
+
 .tech-card:before {
   @extend %tech-card-box; 
   border: 1px solid $earls-green;
@@ -28,12 +32,13 @@
   background: $earls-green;
   border-radius: $tech-card-border-radius;
   margin: 10px 0 0 10px;
-  position: absolute;
+  position: relative;
 }
 
 .tech-card-image {
   @extend %tech-card-item; 
   width: $tech-logo-size;
+  height: $tech-logo-size;
 }
 
 .tech-card-title {
@@ -47,5 +52,5 @@
 
 .tech-card-description {
   @extend %tech-card-item;
-  font-size: $text-medium;
+  font-size: $text-small;
 }
