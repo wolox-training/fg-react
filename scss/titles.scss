@@ -1,15 +1,11 @@
-$title-decoration-height: 90px;
-$title-decoration-width: 70px;
-
-.title:before{
+.title::before {
     background: url(assets/triangle.svg);
     background-repeat: no-repeat;
     content: '';
     height: $title-decoration-height;
+    left: 0;
     position: absolute;
-    right: calc(100% - 20px);
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
     width: $title-decoration-width;
     z-index: -1;
 }
@@ -19,6 +15,5 @@ $title-decoration-width: 70px;
     font-family: $font-stack;
     font-size: $text-big;
     line-height: 24px;
-    margin: 34px 0 34px 50px;
-    position: absolute;
+    padding: 34px 0 34px 50px;
 }
