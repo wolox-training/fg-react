@@ -1,0 +1,21 @@
+.title::before {
+  background: url(assets/triangle.svg);
+  background-repeat: no-repeat;
+  content: '';
+  height: $title-decoration-height;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: $title-decoration-width;
+  z-index: -1;
+}
+
+.title {
+  color: $mine-shaft;
+  font-family: $font-stack;
+  font-size: $text-big;
+  line-height: 24px;
+  padding: 34px 0 34px 50px;
+  position: relative;
+}
