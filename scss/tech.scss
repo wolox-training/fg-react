@@ -5,7 +5,12 @@
   text-align: center;
 }
 
+.grid-flex-display .tech-card {
+  margin: 20px;
+}
+
 .tech-card::before {
+  @extend %tech-card-box; 
   border: 1px solid $earls-green;
   border-radius: $tech-card-border-radius;
   content: '';
