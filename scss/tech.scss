@@ -3,7 +3,6 @@
   font-family: $font-stack;
   font-size: $text-medium;
   text-align: center;
-  margin: 10px auto;
 }
 
 .tech-card:before {
@@ -36,15 +35,18 @@
   @extend %tech-card-item; 
   height: $tech-logo-size;
   width: $tech-logo-size;
+  margin: 20px 0;
 }
 
 .tech-card-title {
   @extend %tech-card-item;
+  margin-bottom: 15px;
 }
 
 .tech-card-release {
   @extend %tech-card-item; 
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .tech-card-description {
