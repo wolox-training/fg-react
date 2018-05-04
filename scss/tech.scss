@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.tech-card:before {
+.tech-card::before {
   border: 1px solid $earls-green;
   border-radius: $tech-card-border-radius;
   content: '';
@@ -35,7 +35,7 @@
   @extend %tech-card-item; 
   height: $tech-logo-size;
   width: $tech-logo-size;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .tech-card-title {
