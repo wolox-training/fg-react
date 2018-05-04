@@ -7,7 +7,7 @@
 }
 
 .grid-flex-display .tech-card {
-  margin: 10px;
+  margin: 20px;
 }
 
 .tech-card:before {
@@ -34,6 +34,11 @@
   position: relative;
   top: $tech-card-box-overlap;
   width: $tech-card-box-width;
+}
+
+.tech-card:hover:before {
+  left: $tech-card-box-overlap;
+  top: $tech-card-box-overlap;
 }
 
 .tech-card-image {
