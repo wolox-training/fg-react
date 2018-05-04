@@ -1,0 +1,52 @@
+%tech-card-item {
+  color: $mine-shaft;
+  font-family: $font-stack;
+  font-size: $text-medium;
+  position: relative;
+  text-align: center;
+}
+
+.tech-card:before {
+  border: 1px solid $earls-green;
+  border-radius: $tech-card-border-radius;
+  content: ' ';
+  height: 100%;
+  left: -$tech-card-box-overlap;
+  position: absolute;
+  top: -$tech-card-box-overlap;
+  width: 100%;
+  z-index: -1;
+}
+
+.tech-card {
+  align-items: center;
+  background: $earls-green;
+  border-radius: $tech-card-border-radius;
+  display: flex;
+  flex-direction: column;
+  height: $tech-card-box-height; 
+  justify-content: space-evenly;
+  left: $tech-card-box-overlap;
+  position: relative;
+  top: $tech-card-box-overlap;
+  width: $tech-card-box-width;
+}
+
+.tech-card-image {
+  @extend %tech-card-item; 
+  width: $tech-logo-size;
+}
+
+.tech-card-title {
+  @extend %tech-card-item;
+}
+
+.tech-card-release {
+  @extend %tech-card-item; 
+  font-weight: bold;
+}
+
+.tech-card-description {
+  @extend %tech-card-item;
+  flex-grow: 0.25;
+}
