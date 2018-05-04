@@ -18,7 +18,9 @@
 .navbar .right-title {
     font-family: $font-stack;
     font-size: $text-big;
-    position: relative;
     float: right;
+    line-height: $text-big;
+    padding: 33px 5px;
+    position: relative;
 }
 
