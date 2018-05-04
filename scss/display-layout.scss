@@ -1,6 +1,13 @@
+.content {
+  margin: $nav-bar-height auto;
+  width: $display-layout-max-width;
+}
+
 .grid-flex-display {
   display: flex;
   flex-flow: row wrap; 
-  justify-content: space-between;
-  max-width: 1000px;    
+  justify-content: start;
+  max-width: $display-layout-max-width;
+  padding: 10px 50px; 
+  width: 100%;   
 }

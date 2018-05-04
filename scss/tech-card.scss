@@ -7,7 +7,7 @@
 }
 
 .grid-flex-display .tech-card {
-  margin: 10px;
+  margin: 30px 20px;
 }
 
 .tech-card:before {
@@ -28,9 +28,10 @@
   border-radius: $tech-card-border-radius;
   display: flex;
   flex-direction: column;
-  height: $tech-card-box-height; 
   justify-content: space-evenly;
   left: $tech-card-box-overlap;
+  min-height: $tech-card-box-min-height; 
+  padding: 20px;
   position: relative;
   top: $tech-card-box-overlap;
   width: $tech-card-box-width;
@@ -53,5 +54,4 @@
 
 .tech-card-description {
   @extend %tech-card-item;
-  height: 100px;
 }
