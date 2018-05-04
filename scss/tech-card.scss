@@ -1,48 +1,49 @@
-%tech-card-box {
-  border-radius: $tech-card-border-radius;
-  width: $tech-card-box-width;
-  height: $tech-card-box-height;
-}
-
 %tech-card-item {
-  text-align: center;
-  font-family: $font-stack;
   color: $mine-shaft;
+  font-family: $font-stack;
   font-size: $text-medium;
-  display: block;
-  margin: 20px auto;
   position: relative;
+  text-align: center;
 }
 
 .grid-flex-display .tech-card {
-  margin: 20px;
+  margin: 10px;
 }
 
 .tech-card:before {
-  @extend %tech-card-box; 
   border: 1px solid $earls-green;
+  border-radius: $tech-card-border-radius;
   content: ' ';
+  height: 100%;
+  left: -$tech-card-box-overlap;
   position: absolute;
-  transform: translate(-10px, -10px);
+  top: -$tech-card-box-overlap;
+  width: 100%;
   z-index: -1;
 }
 
 .tech-card {
-  @extend %tech-card-box; 
+  align-items: center;
   background: $earls-green;
   border-radius: $tech-card-border-radius;
-  margin: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  height: $tech-card-box-height; 
+  justify-content: space-evenly;
+  left: $tech-card-box-overlap;
   position: relative;
+  top: $tech-card-box-overlap;
+  width: $tech-card-box-width;
 }
 
 .tech-card-image {
   @extend %tech-card-item; 
-  width: $tech-logo-size;
   height: $tech-logo-size;
+  width: $tech-logo-size;
 }
 
 .tech-card-title {
-  @extend %tech-card-item; 
+  @extend %tech-card-item;
 }
 
 .tech-card-release {
@@ -52,5 +53,5 @@
 
 .tech-card-description {
   @extend %tech-card-item;
-  font-size: $text-small;
+  height: 100px;
 }

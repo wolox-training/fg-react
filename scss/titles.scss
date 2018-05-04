@@ -19,3 +19,8 @@
   padding: 34px 0 34px 50px;
   position: relative;
 }
+
+.display-layout-title-margin {
+  margin-top: 25px;
+  margin-left: calc(50% - (#{$display-layout-width} / 2) - 100px);
+}
