@@ -2,14 +2,14 @@
   color: $mine-shaft;
   font-family: $font-stack;
   font-size: $text-medium;
-  position: relative;
   text-align: center;
+  margin: 10px auto;
 }
 
 .tech-card:before {
   border: 1px solid $earls-green;
   border-radius: $tech-card-border-radius;
-  content: ' ';
+  content: '';
   height: 100%;
   left: -$tech-card-box-overlap;
   position: absolute;
@@ -24,10 +24,9 @@
   border-radius: $tech-card-border-radius;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   left: $tech-card-box-overlap;
   min-height: $tech-card-box-min-height; 
-  padding: 0 20px;
+  padding: 10px 20px;
   position: relative;
   top: $tech-card-box-overlap;
   width: $tech-card-box-width;
