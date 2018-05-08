@@ -35,6 +35,11 @@
   width: $tech-card-box-width;
 }
 
+.tech-card:hover::before {
+  left: $tech-card-box-overlap;
+  top: $tech-card-box-overlap;
+}
+
 .tech-card-image {
   @extend %tech-card-item; 
   height: $tech-logo-size;
