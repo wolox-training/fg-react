@@ -35,7 +35,7 @@
   width: $tech-card-box-width;
 }
 
-.tech-card:hover:before {
+.tech-card:hover::before {
   left: $tech-card-box-overlap;
   top: $tech-card-box-overlap;
 }
