@@ -1,0 +1,24 @@
+.navbar {
+  align-items: center;
+  background-color: $white;
+  box-shadow: 0 0 5px $black;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 20px;
+  position: fixed; 
+  top: 0; 
+  height: $nav-bar-height;
+  width: 100%;
+  z-index: 1;
+}
+
+.navbar .logo {
+  height: $nav-bar-logo-height;
+}
+
+.navbar .right-title {
+  font-family: $font-stack;
+  font-size: $text-big;
+  line-height: $text-big;
+}
