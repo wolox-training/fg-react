@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   left: 0;
+  padding: 20px;
   position: fixed; 
   top: 0; 
   height: $nav-bar-height;
@@ -13,7 +14,6 @@
 }
 
 .navbar .logo {
-  padding-left: 20px;
   height: $nav-bar-logo-height;
 }
 
@@ -21,5 +21,4 @@
   font-family: $font-stack;
   font-size: $text-big;
   line-height: $text-big;
-  padding-right: 20px;
 }
