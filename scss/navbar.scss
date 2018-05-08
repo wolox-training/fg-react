@@ -1,26 +1,25 @@
 .navbar {
-    overflow: hidden;
-    background-color: white;
-    border-bottom: 1px solid black;
-    position: fixed; 
-    top: 0; 
-    height: $nav-bar-height;
-    width: 100%;
-    z-index: 9999;
+  align-items: center;
+  background-color: $white;
+  box-shadow: 0 0 5px $black;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  position: fixed; 
+  top: 0; 
+  height: $nav-bar-height;
+  width: 100%;
+  z-index: 1;
 }
 
 .navbar .logo {
-    padding: 30px 20px;
-    height: $nav-bar-height;
-    width: auto;
+  padding-left: 20px;
+  height: $nav-bar-logo-height;
 }
 
 .navbar .right-title {
-    font-family: $font-stack;
-    font-size: $text-big;
-    float: right;
-    line-height: $text-big;
-    padding: 33px 5px;
-    position: relative;
+  font-family: $font-stack;
+  font-size: $text-big;
+  line-height: $text-big;
+  padding-right: 20px;
 }
-
