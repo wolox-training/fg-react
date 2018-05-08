@@ -5,13 +5,8 @@
   text-align: center;
 }
 
-<<<<<<< 2810fdbdfae9091e7d6c9b2da339047184b0e06b:scss/tech.scss
 .tech-list .tech-card {
   margin: 30px 20px;
-=======
-.grid-flex-display .tech-card {
-  margin: 20px;
->>>>>>> Added transition efect when hover:scss/tech-card.scss
 }
 
 .tech-card::before {
@@ -40,7 +35,7 @@
   width: $tech-card-box-width;
 }
 
-.tech-card:hover::before {
+.tech-card:hover:before {
   left: $tech-card-box-overlap;
   top: $tech-card-box-overlap;
 }
