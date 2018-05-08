@@ -1,0 +1,13 @@
+.content {
+  margin: $nav-bar-height auto;
+  width: $display-layout-max-width;
+}
+
+.tech-list {
+  display: flex;
+  flex-flow: row wrap; 
+  justify-content: start;
+  max-width: $display-layout-max-width;
+  padding: 10px 50px; 
+  width: 100%;   
+}
