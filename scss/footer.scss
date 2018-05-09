@@ -1,0 +1,32 @@
+%footer-text {
+  font-family: $font-stack;
+  color: $white;
+}
+
+.footer {
+  align-content: center;
+  background: $cerulean;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer .punch-line {
+  @extend %footer-text;
+  font-size: $text-medium;
+  line-height: $text-medium;
+  margin-bottom: 15px;
+}
+
+.footer .footer-logo {
+  height: $footer-logo-height;
+}
+
+.footer .footer-copy-right {
+  @extend %footer-text;
+  font-size: $text-small;
+  line-height: $text-small;
+  align-self: flex-end;
+}
