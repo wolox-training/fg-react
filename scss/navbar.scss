@@ -22,3 +22,20 @@
   font-size: $text-big;
   line-height: $text-big;
 }
+
+@media only screen and (max-width: 1024px) {
+  .navbar {
+    box-shadow: 0 0 30px $black;
+    justify-content: start;
+    height: $mobile-nav-bar-height;
+    position: initial;
+  }
+
+  .navbar .logo {
+    height: $mobile-nav-bar-logo-height;
+  }
+
+  .navbar .right-title {
+    display: none;
+  }
+}

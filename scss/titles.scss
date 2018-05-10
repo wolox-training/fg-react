@@ -19,3 +19,17 @@
   padding: 34px 0 34px 50px;
   position: relative;
 }
+
+@media only screen and (max-width: 1024px) {
+  .title::before {
+    height: $mobile-title-decoration-height;
+    width: $mobile-title-decoration-width;
+  }
+  
+  .title {
+    margin: 0 50px;
+    font-size: $mobile-text-big;
+    line-height: $mobile-text-big;
+    padding: 68px 0 68px 100px;
+  }
+}

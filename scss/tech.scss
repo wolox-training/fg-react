@@ -43,3 +43,29 @@
 .tech-card-description {
   @extend %tech-card-item;
 }
+
+@media only screen and (max-width: 1024px) {
+  %tech-card-item {
+    font-size: $mobile-text-medium;
+    line-height: $mobile-text-medium;
+    height: auto;
+    width: auto;
+  }
+
+  .tech-card-image  {
+    height: $mobile-tech-logo-size;
+    width: $mobile-tech-logo-size;
+  }
+
+  .tech-card:first-child {
+    border-top: initial;
+    grid-column: initial;
+    grid-row: initial;
+    border-right: initial; 
+  }
+
+  .tech-card {
+    border-top: 5px solid $earls-green;
+    padding: 30px 20px; 
+  }
+}
