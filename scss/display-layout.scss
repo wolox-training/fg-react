@@ -1,14 +1,13 @@
 .content {
   margin: $nav-bar-height auto;
   padding: 20px;
-  width: $display-layout-max-width;
+  width: $content-width;
 }
 
 .tech-list {
-  display: flex;
-  flex-flow: row wrap; 
-  justify-content: start;
-  max-width: $display-layout-max-width;
-  padding: 10px 50px; 
-  width: 100%;   
+  display: grid;
+  grid-gap: 10px;	
+  grid-template-columns: repeat(3, $tech-list-cell-width); 
+  grid-template-rows: repeat(2, $tech-list-cell-height); 
+  justify-content: center;
 }
