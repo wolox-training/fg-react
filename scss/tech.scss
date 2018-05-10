@@ -61,7 +61,9 @@
     border-top: initial;
     grid-column: initial;
     grid-row: initial;
-    border-right: initial; 
+    border-right: initial;
+    min-width: 100%;
+    min-height: 100%; 
   }
 
   .tech-card {
