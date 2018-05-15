@@ -22,3 +22,9 @@
   font-size: $text-big;
   line-height: $text-big;
 }
+
+@media only screen and (max-width: 1024px) {
+  .navbar .right-title {
+    display: none;
+  }
+}

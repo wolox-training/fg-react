@@ -30,3 +30,13 @@
   line-height: $text-small;
   align-self: flex-end;
 }
+
+@media only screen and (max-width: 1024px) {
+  .footer .footer-logo {
+    margin-bottom: 15px;
+  }
+  
+  .footer .footer-copy-right {
+    align-self: initial;
+  }
+}

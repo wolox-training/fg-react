@@ -18,8 +18,6 @@
   padding: 10px 20px;
   position: relative;
   justify-content: center;
-  min-width: 100%;
-  min-height: 100%;
 }
 
 .tech-card-image {
@@ -42,4 +40,16 @@
 
 .tech-card-description {
   @extend %tech-card-item;
+}
+
+@media only screen and (max-width: 1024px) {
+  .tech-card:first-child {
+    border-right: initial; 
+    grid-column: initial;
+    grid-row: initial;
+  }
+  
+  .tech-card:not(:last-child) {
+    border-bottom: 2px solid $earls-green;
+  }
 }
