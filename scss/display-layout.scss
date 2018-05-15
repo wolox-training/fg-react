@@ -1,7 +1,8 @@
 .content {
   margin: $nav-bar-height auto;
   padding: 20px;
-  width: $content-width;
+  max-width: $content-width;
+  width: 100%;
 }
 
 .tech-list {
@@ -13,10 +14,6 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .content {
-    width: 100%;
-  }
-
   .tech-list {
     grid-template-columns: $tech-list-cell-width;
     grid-template-rows: initial;
