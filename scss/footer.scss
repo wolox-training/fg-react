@@ -32,19 +32,11 @@
 }
 
 @media only screen and (max-width: 1024px) {
-  .footer .punch-line {
-    font-size: $text-big;
-    line-height: $text-big;
-  }
-  
   .footer .footer-logo {
-    height: $mobile-footer-logo-height;
     margin-bottom: 15px;
   }
   
   .footer .footer-copy-right {
-    font-size: $text-medium;
-    line-height: $text-medium;
     align-self: initial;
   }
 }

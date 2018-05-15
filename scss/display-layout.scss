@@ -14,15 +14,11 @@
 
 @media only screen and (max-width: 1024px) {
   .content {
-    margin: 50px auto;
     width: 100%;
   }
 
   .tech-list {
-    grid-template-columns: $mobile-tech-list-cell-width;
+    grid-template-columns: $tech-list-cell-width;
     grid-template-rows: initial;
-    padding: 30px;
-    margin: 20px;
-    justify-content: center;
   }
 }

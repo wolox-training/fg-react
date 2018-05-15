@@ -12,18 +12,3 @@ $tech-logo-size: 100px;
 $content-width: 1200px;
 
 $footer-logo-height: 50px;
-
-$mobile-nav-bar-height: calc(3 * #{$nav-bar-height});
-$mobile-nav-bar-logo-height: calc(3 * #{$nav-bar-logo-height});
-
-$mobile-title-decoration-height: calc(2 * #{$title-decoration-height});
-$mobile-title-decoration-width: calc(2 * #{$title-decoration-width});
-
-$mobile-tech-list-cell-height: calc(2 * #{$tech-list-cell-height});
-$mobile-tech-list-cell-width: calc(2 * #{$tech-list-cell-width});
-
-$mobile-tech-logo-size: calc(2 * #{$tech-logo-size});
-
-$mobile-content-width: calc(#{$content-width} / 2);
-
-$mobile-footer-logo-height: calc(1.5 * #{$footer-logo-height});
