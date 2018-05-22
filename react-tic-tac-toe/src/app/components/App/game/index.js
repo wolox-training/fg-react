@@ -19,7 +19,7 @@ export default class Game extends React.Component {
     };
   }
 
-  handleClick(i) {
+  handleClick = i => {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[this.state.stepNumber];
     const squares = current.squares.slice();
@@ -27,16 +27,16 @@ export default class Game extends React.Component {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState({
+    this.setState(prevState => ({
       history: history.concat([
         {
           squares
         }
       ]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
-    });
-  }
+      xIsNext: !prevState.xIsNext
+    }));
+  };
 
   jumpTo(step) {
     this.setState({
@@ -69,7 +69,7 @@ export default class Game extends React.Component {
     return (
       <div className={styles.game}>
         <div>
-          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+          <Board squares={current.squares} onClick={this.handleClick} />
         </div>
         <div className={styles.gameInfo}>
           <div>{status}</div>
