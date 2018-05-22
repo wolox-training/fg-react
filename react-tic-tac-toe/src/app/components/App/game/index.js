@@ -21,21 +21,19 @@ class Game extends React.Component {
   }
 
   handleClick = i => {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[this.state.stepNumber];
+    const history = this.state.history.slice(0, this.props.stepNumber + 1);
+    const current = history[this.props.stepNumber];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState(prevState => ({
+    this.setState(() => ({
       history: history.concat([
         {
           squares
         }
-      ]),
-      stepNumber: history.length,
-      xIsNext: !prevState.xIsNext
+      ])
     }));
   };
 
