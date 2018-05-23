@@ -1,11 +1,11 @@
-import { CHANGE_SQUARE, CHANGE_STEP_NUMBER } from './actions';
+import { CHANGE_SQUARE, CHANGE_STEP_NUMBER } from '../actions/game';
 
 const initialState = {
   stepNumber: 0,
   xIsNext: true
 };
 
-const rootReducer = (state = initialState, action) => {
+export default function game(state = initialState, action) {
   switch (action.type) {
     case CHANGE_SQUARE:
       return {
@@ -20,6 +20,4 @@ const rootReducer = (state = initialState, action) => {
     default:
       return state;
   }
-};
-
-export default rootReducer;
+}

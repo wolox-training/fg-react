@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Redirect from 'react-router-dom/Redirect';
 
 import Board from '../board';
 import { calculateWinner } from '../helpers';
-import { changeSquare, changeStep } from '../../../redux/actions';
+import { changeSquare, changeStep } from '../../../redux/actions/game';
 
 import styles from './styles.scss';
 
@@ -43,37 +44,40 @@ class Game extends React.Component {
   }
 
   render() {
-    const history = this.state.history;
-    const current = history[this.props.stepNumber];
-    const winner = calculateWinner(current.squares);
+    if (localStorage.getItem('token')) {
+      const history = this.state.history;
+      const current = history[this.props.stepNumber];
+      const winner = calculateWinner(current.squares);
 
-    const moves = history.map((step, move) => {
-      const desc = move ? `Go to move # ${move}` : `Go to game start`;
+      const moves = history.map((step, move) => {
+        const desc = move ? `Go to move # ${move}` : `Go to game start`;
+        return (
+          <li key={step}>
+            <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          </li>
+        );
+      });
+
+      let status;
+      if (winner) {
+        status = `Winner: ${winner}`;
+      } else {
+        status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
+      }
+
       return (
-        <li key={step}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
+        <div className={styles.game}>
+          <div>
+            <Board squares={current.squares} onClick={this.handleClick} />
+          </div>
+          <div className={styles.gameInfo}>
+            <div>{status}</div>
+            <ol>{moves}</ol>
+          </div>
+        </div>
       );
-    });
-
-    let status;
-    if (winner) {
-      status = `Winner: ${winner}`;
-    } else {
-      status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
     }
-
-    return (
-      <div className={styles.game}>
-        <div>
-          <Board squares={current.squares} onClick={this.handleClick} />
-        </div>
-        <div className={styles.gameInfo}>
-          <div>{status}</div>
-          <ol>{moves}</ol>
-        </div>
-      </div>
-    );
+    return <Redirect to="/login" />;
   }
 }
 
@@ -85,8 +89,8 @@ Game.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  stepNumber: state.stepNumber,
-  xIsNext: state.xIsNext
+  stepNumber: state.game.stepNumber,
+  xIsNext: state.game.xIsNext
 });
 
 const mapDispatchToProps = dispatch => ({
