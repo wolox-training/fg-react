@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Board from '../board';
 import { calculateWinner } from '../helpers';
+import { changeSquare, changeStep } from '../../../redux/actions';
 
 import styles from './styles.scss';
 
-export default class Game extends React.Component {
+class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,47 +16,41 @@ export default class Game extends React.Component {
         {
           squares: Array(9).fill(null)
         }
-      ],
-      stepNumber: 0,
-      xIsNext: true
+      ]
     };
   }
 
   handleClick = i => {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[this.state.stepNumber];
+    const history = this.state.history.slice(0, this.props.stepNumber + 1);
+    const current = history[this.props.stepNumber];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.setState(prevState => ({
+    squares[i] = this.props.xIsNext ? 'X' : 'O';
+    this.props.changeSquare(history.length);
+    this.setState({
       history: history.concat([
         {
           squares
         }
-      ]),
-      stepNumber: history.length,
-      xIsNext: !prevState.xIsNext
-    }));
+      ])
+    });
   };
 
   jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: step % 2 === 0
-    });
+    this.props.changeStep(step);
   }
 
   render() {
     const history = this.state.history;
-    const current = history[history.length - 1];
+    const current = history[this.props.stepNumber];
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move # ${move}` : `Go to game start`;
       return (
-        <li key={move.id}>
+        <li key={step}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
@@ -63,7 +60,7 @@ export default class Game extends React.Component {
     if (winner) {
       status = `Winner: ${winner}`;
     } else {
-      status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+      status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
     }
 
     return (
@@ -79,3 +76,26 @@ export default class Game extends React.Component {
     );
   }
 }
+
+Game.propTypes = {
+  stepNumber: PropTypes.number,
+  xIsNext: PropTypes.bool,
+  changeSquare: PropTypes.func,
+  changeStep: PropTypes.func
+};
+
+const mapStateToProps = state => ({
+  stepNumber: state.stepNumber,
+  xIsNext: state.xIsNext
+});
+
+const mapDispatchToProps = dispatch => ({
+  changeSquare: stepNumber => {
+    dispatch(changeSquare(stepNumber));
+  },
+  changeStep: step => {
+    dispatch(changeStep(step));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
