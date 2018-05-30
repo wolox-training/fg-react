@@ -8,13 +8,16 @@ const userService = {
   login: (email, password) =>
     getUsers()
       .then(response => response.data.filter(e => e.email === email && e.password === password))
-      .then(response => (resolve, reject) => {
-        if (response.length === 1) {
-          resolve(response[0].token);
-        } else {
-          reject();
-        }
-      })
+      .then(
+        response =>
+          new Promise((resolve, reject) => {
+            if (response.length === 1) {
+              resolve(response[0].token);
+            } else {
+              reject();
+            }
+          })
+      )
 };
 
 export default userService;
