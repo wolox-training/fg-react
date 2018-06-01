@@ -1,7 +1,10 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import userService from '../../../services/usersService';
+import { changeLogged } from '../../../redux/actions/login';
 
 import MyForm from './layout';
 
@@ -9,7 +12,6 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      token: '',
       error: false
     };
   }
@@ -19,10 +21,7 @@ class Login extends React.Component {
       .login(values.email, values.password)
       .then(token => {
         localStorage.setItem('token', token);
-        this.setState({
-          token
-        });
-        this.render();
+        this.props.changeLogged(true);
       })
       .catch(() => {
         this.setState({
@@ -31,8 +30,8 @@ class Login extends React.Component {
       });
   };
 
-  render = () => {
-    if (this.state.token || localStorage.getItem('token')) {
+  render() {
+    if (this.props.logged) {
       return <Redirect to="/game" />;
     }
     if (this.state.error) {
@@ -40,7 +39,22 @@ class Login extends React.Component {
     }
 
     return <MyForm onSubmit={this.handleSubmit} />;
-  };
+  }
 }
 
-export default Login;
+Login.propTypes = {
+  logged: PropTypes.bool,
+  changeLogged: PropTypes.func
+};
+
+const mapStateToProps = state => ({
+  logged: state.login.logged
+});
+
+const mapDispatchToProps = dispatch => ({
+  changeLogged: logged => {
+    dispatch(changeLogged(logged));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

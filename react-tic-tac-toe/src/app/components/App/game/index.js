@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Redirect from 'react-router-dom/Redirect';
 
 import Board from '../board';
 import { calculateWinner } from '../helpers';
@@ -44,40 +43,37 @@ class Game extends React.Component {
   }
 
   render() {
-    if (localStorage.getItem('token')) {
-      const history = this.state.history;
-      const current = history[this.props.stepNumber];
-      const winner = calculateWinner(current.squares);
+    const history = this.state.history;
+    const current = history[this.props.stepNumber];
+    const winner = calculateWinner(current.squares);
 
-      const moves = history.map((step, move) => {
-        const desc = move ? `Go to move # ${move}` : `Go to game start`;
-        return (
-          <li key={step}>
-            <button onClick={() => this.jumpTo(move)}>{desc}</button>
-          </li>
-        );
-      });
-
-      let status;
-      if (winner) {
-        status = `Winner: ${winner}`;
-      } else {
-        status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
-      }
-
+    const moves = history.map((step, move) => {
+      const desc = move ? `Go to move # ${move}` : `Go to game start`;
       return (
-        <div className={styles.game}>
-          <div>
-            <Board squares={current.squares} onClick={this.handleClick} />
-          </div>
-          <div className={styles.gameInfo}>
-            <div>{status}</div>
-            <ol>{moves}</ol>
-          </div>
-        </div>
+        <li key={step}>
+          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        </li>
       );
+    });
+
+    let status;
+    if (winner) {
+      status = `Winner: ${winner}`;
+    } else {
+      status = `Next player: ${this.props.xIsNext ? 'X' : 'O'}`;
     }
-    return <Redirect to="/login" />;
+
+    return (
+      <div className={styles.game}>
+        <div>
+          <Board squares={current.squares} onClick={this.handleClick} />
+        </div>
+        <div className={styles.gameInfo}>
+          <div>{status}</div>
+          <ol>{moves}</ol>
+        </div>
+      </div>
+    );
   }
 }
 
