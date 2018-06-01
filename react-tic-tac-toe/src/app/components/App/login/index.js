@@ -34,11 +34,7 @@ class Login extends React.Component {
     if (this.props.logged) {
       return <Redirect to="/game" />;
     }
-    if (this.state.error) {
-      return <MyForm onSubmit={this.handleSubmit} loginError="true" />;
-    }
-
-    return <MyForm onSubmit={this.handleSubmit} />;
+    return <MyForm onSubmit={this.handleSubmit} loginError={this.state.error} />;
   }
 }
 

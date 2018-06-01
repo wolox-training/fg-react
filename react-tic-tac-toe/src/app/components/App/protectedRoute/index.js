@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const ProtectedRoute = ({ Component, logged, ...rest }) => (
+const ProtectedRoute = ({ component: Component, logged, ...rest }) => (
   <Route
     {...rest}
     render={() =>
       logged ? (
-        <Component Component />
+        <Component />
       ) : (
         <Redirect
           to={{
@@ -22,7 +22,7 @@ const ProtectedRoute = ({ Component, logged, ...rest }) => (
 
 ProtectedRoute.propTypes = {
   logged: PropTypes.bool,
-  Component: PropTypes.Componenet
+  component: PropTypes.element
 };
 
 const mapStateToProps = state => ({

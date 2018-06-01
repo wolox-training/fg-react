@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -14,9 +14,6 @@ class NavBar extends React.Component {
   };
 
   render() {
-    if (!this.props.logged) {
-      return <Redirect to="/login" />;
-    }
     return (
       <nav className={styles.navBar}>
         <div>
@@ -34,13 +31,8 @@ class NavBar extends React.Component {
 }
 
 NavBar.propTypes = {
-  logged: PropTypes.bool,
   changeLogged: PropTypes.func
 };
-
-const mapStateToProps = state => ({
-  logged: state.login.logged
-});
 
 const mapDispatchToProps = dispatch => ({
   changeLogged: logged => {
@@ -48,4 +40,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default connect(null, mapDispatchToProps)(NavBar);
